@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registrados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Lato:ital,wght@1,300&family=Ubuntu&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #c2c9c8;
+            font-family: "Afacad Flux", sans-serif;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background-color: #dffffe;
+            border-radius: 20px;
+            box-shadow: 20px 20px 13px -4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6f68fe;
+        }
+
+        tr:hover {
+            background-color: #babab9;
+        }
+
+        .enlace-eliminar {
+            text-decoration: none;
+            font-weight: bold;
+            color: #EA4220;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if registrados %}
+            <h1>ESTUDIANTES REGISTRADOS</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estudiantes</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for re in registrados %}
+                    <tr>
+                        <td>{{ re.nombre }}</td>
+                        <td>{{ re.fecha }}</td>
+                        <td>{{ re.hora }}</td>
+                        <td>
+                            <a class="enlace-eliminar" href="{% url 'eliminar' re.id %}" aria-label="Eliminar {{ re.nombre }}">&#x2717;</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h1>No hay registros disponibles todavía</h1>
+        {% endif %}
+    </div>
+</body>
+</html>

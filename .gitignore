@@ -1,0 +1,12 @@
+# Ignorar base de datos local
+db.sqlite3
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Ignorar configuraciones de IDE
+.idea/
+
+# Ignorar archivos de variables de entorno sensibles
+.env

@@ -1,0 +1,1 @@
+Control de Asistencia con Reconocimiento Facial en Django
