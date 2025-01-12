@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 
 # Función para tomar la foto y guardarla en la carpeta 'empleados'
 def tomar_foto():
-    url = "http://192.168.1.4:8080/video"
+    url = "http://192.168.1.34:8080/video"
     nombre = nombre_var.get().strip()  # Obtiene el nombre del Entry
     if nombre:
         # Ruta de la carpeta 'empleados' (asumiendo que ya existe)
