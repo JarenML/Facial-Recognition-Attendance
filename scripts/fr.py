@@ -1,12 +1,24 @@
-
-from config import *
+import os
 from cv2 import cv2
 import face_recognition as fr
 import numpy
 from datetime import datetime
-from base.models import Asistencia
+import pymysql
+from decouple import config
+import pymysql.cursors
 
-ruta = 'base/Estudiantes'
+# configuracion de conexion db
+conexion = pymysql.connect(
+    host=config('DB_HOST'),
+    user=config('DB_USER'), 
+    password=config('DB_PASSWORD'),
+    database=config('DB_NAME'),
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
+)
+
+
+ruta = './base/Estudiantes'
 mis_imagenes = []
 nombres_estudiantes = []
 lista_rutas_estudiantes = os.listdir(ruta)
@@ -48,17 +60,30 @@ def codificar(imagenes):
 
 # Registrar en DB
 def registrar(persona):
-    registros = Asistencia.objects.filter(nombre=persona)
+    try:
+        with conexion.cursor() as cursor:
+            actual = datetime.now()
 
-    if not registros.exists():
-        # Si no existe, crear un nuevo registro
-        actual = datetime.now()
-        nueva_asistencia = Asistencia(
-            nombre=persona,
-            fecha=actual.date(),
-            hora=actual.time()
-        )
-        nueva_asistencia.save()  # Guarda el registro en la base de datos
+            query_check = """
+                SELECT COUNT(*) as total FROM base_asistencia WHERE nombre=%s
+            """
+            cursor.execute(query_check, (persona,))
+            resultado = cursor.fetchone()
+
+            # se insertara cuando no encuentre ya un registro existente
+            if resultado['total'] == 0:
+
+                query_insert = """
+                    INSERT INTO base_asistencia (nombre, fecha, hora)
+                    VALUES (%s, %s, %s)
+                """
+                cursor.execute(query_insert, (persona, actual.date(), actual.time()))
+                conexion.commit()  # Guardar cambios
+                print(f"Asistencia registrada para: {persona}")
+            else:
+                print(f"Asistencia ya registrada para: {persona}")
+    except Exception as e:
+        print(f"Error al registrar asistencia: {e}")
 
 
 estudiantes_Codificados = codificar(mis_imagenes)
@@ -151,3 +176,4 @@ while True:
             break
 
         frame_count += 1
+conexion.close()
