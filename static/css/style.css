@@ -1,0 +1,46 @@
+body {
+    background-color: #c2c9c8;
+    font-family: "Afacad Flux", sans-serif;
+    padding-top: 50px;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    background-color: #dffffe;
+    border-radius: 20px;
+    box-shadow: 20px 20px 13px -4px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #6f68fe;
+}
+
+tr:hover {
+    background-color: #babab9;
+}
+
+.enlace-eliminar {
+    text-decoration: none;
+    font-weight: bold;
+    color: #EA4220;
+    font-size: 20px;
+}

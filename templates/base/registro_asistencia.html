@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Detectados{% endblock %}
+{% block content %}
+    <div class="container">
+        {% if registrados %}
+            <h1>ESTUDIANTES REGISTRADOS</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estudiantes</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for re in registrados %}
+                    <tr>
+                        <td>{{ re.nombre }}</td>
+                        <td>{{ re.fecha }}</td>
+                        <td>{{ re.hora }}</td>
+                        <td>
+                            <a class="enlace-eliminar" href="{% url 'eliminar' re.id %}" aria-label="Eliminar {{ re.nombre }}">&#x2717;</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h1>No hay registros disponibles todavía</h1>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -43,20 +43,6 @@ def codificar(imagenes):
     return lista_codificadas
 
 
-# Registrar en csv
-'''def registrar(persona):
-    archivo = open('asistencia.csv', 'r+')
-    registros = archivo.readlines()
-    nombres_asistidos = []
-
-    for linea in registros:
-        nombres_asistidos.append(linea.split(',')[0])
-
-    if persona not in nombres_asistidos:
-        actual = datetime.now()
-        str_actual = actual.strftime('%H:%M:%S')
-        archivo.write(f'\n{persona}, {str_actual}')'''
-
 
 # Registrar en DB
 def registrar(persona):
@@ -88,7 +74,7 @@ def registrar(persona):
 
 estudiantes_Codificados = codificar(mis_imagenes)
 
-url = "http://192.168.1.34:8080/video"
+url = "http://192.168.1.35:8080/video"
 
 capturador = cv2.VideoCapture(url)
 
