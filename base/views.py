@@ -6,19 +6,6 @@ from django.urls import reverse_lazy
 
 
 # Create your views here.
-def lista_pendientes(pedido):
-    return HttpResponse("Lista de pendientes")
-
-
-def mostrar_registrados(request):
-    with open('base/asistencia.csv', 'r') as archivo:
-        registros = archivo.readlines()
-
-    contexto = {'registros': registros}
-
-    return render(request, 'base/registro_asistencia.html', contexto)
-
-
 class ListaRegistrados(ListView):
     model = Asistencia
     context_object_name = 'registrados'
