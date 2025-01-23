@@ -8,7 +8,7 @@ def listar_detectados(request):
         'detectados': detectados
     }
 
-    return render(request, 'base/registro_asistencia.html', context)
+    return render(request, 'base/detectados_list.html', context)
 
 
 def eliminar_detectado(request, id):
@@ -21,7 +21,7 @@ def eliminar_detectado(request, id):
         'detectado': detectado
     }
 
-    return render(request, 'base/confirmar_eliminacion_reg.html', context)
+    return render(request, 'base/detectado_delete.html', context)
 
 
 
