@@ -2,8 +2,8 @@
 
 {% block title %}Eliminacion{% endblock %}
 {% block content %}
-    <h2>¿Desea eliminar el registro: "{{ registro.nombre }}"?</h2>
-    <form  method="post">
+    <h2>¿Desea eliminar el registro: "{{ detectado.nombre }}"?</h2>
+    <form method="post">
         {% csrf_token %}
         <input type="submit" value="Confirmar eliminacion">
     </form>

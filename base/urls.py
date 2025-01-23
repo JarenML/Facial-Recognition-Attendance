@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import ListaRegistrados, EliminarRegistro
+from . import views
 
 
-urlpatterns = [path('registrados/', ListaRegistrados.as_view(), name='registrados'),
-               path('eliminar-registro/<int:pk>', EliminarRegistro.as_view(), name='eliminar')]
+urlpatterns = [path('detectados/', views.listar_detectados, name='detectados'),
+               path('eliminar-detectado/<int:id>', views.eliminar_detectado, name='eliminar')]
