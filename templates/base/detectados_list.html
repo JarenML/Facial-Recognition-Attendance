@@ -2,33 +2,31 @@
 
 {% block title %}Detectados{% endblock %}
 {% block content %}
-    <div class="container">
-        {% if detectados %}
-            <h1>ESTUDIANTES DETECTADOS</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Estudiantes</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for detectado in detectados %}
-                    <tr>
-                        <td>{{ detectado.nombre }}</td>
-                        <td>{{ detectado.fecha }}</td>
-                        <td>{{ detectado.hora }}</td>
-                        <td>
-                            <a class="enlace-eliminar" href="{% url 'eliminar' detectado.id %}" aria-label="Eliminar {{ detectado.nombre }}">&#x2717;</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <h1>Aun no se detecto a nadie</h1>
-        {% endif %}
-    </div>
+    {% if detectados %}
+        <h1>ESTUDIANTES DETECTADOS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Estudiantes</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detectado in detectados %}
+                <tr>
+                    <td>{{ detectado.nombre }}</td>
+                    <td>{{ detectado.fecha }}</td>
+                    <td>{{ detectado.hora }}</td>
+                    <td>
+                        <a class="enlace-eliminar" href="{% url 'eliminar' detectado.id %}" aria-label="Eliminar {{ detectado.nombre }}">&#x2717;</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>Aun no se detecto a nadie</h1>
+    {% endif %}
 {% endblock %}
