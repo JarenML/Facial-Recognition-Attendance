@@ -17,8 +17,12 @@ conexion = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor
 )
 
+# obtiene la ruta absoluta del directorio raíz del proyecto
+ruta_proyecto = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ruta = '../base/Estudiantes'
+# une esa ruta con la carpeta 'base/Estudiantes'
+ruta = os.path.join(ruta_proyecto, 'base', 'Estudiantes')
+
 mis_imagenes = []
 nombres_estudiantes = []
 lista_rutas_estudiantes = os.listdir(ruta)

@@ -10,3 +10,6 @@ __pycache__/
 
 # Ignorar archivos de variables de entorno sensibles
 .env
+
+# Ignorando el entorno virtual
+env/
