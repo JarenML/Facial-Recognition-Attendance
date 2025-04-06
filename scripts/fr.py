@@ -18,7 +18,7 @@ conexion = pymysql.connect(
 )
 
 
-ruta = './base/Estudiantes'
+ruta = '../base/Estudiantes'
 mis_imagenes = []
 nombres_estudiantes = []
 lista_rutas_estudiantes = os.listdir(ruta)
@@ -74,7 +74,7 @@ def registrar(persona):
 
 estudiantes_Codificados = codificar(mis_imagenes)
 
-url = "http://192.168.1.35:8080/video"
+url = "http://192.168.1.3:8080/video"
 
 capturador = cv2.VideoCapture(url)
 

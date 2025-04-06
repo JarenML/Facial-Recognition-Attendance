@@ -1,0 +1,49 @@
+:root{
+    --color-primary: #b8f2e6;
+    --color-text: #666;
+    --font-main: Roboto-bold;
+    --font-text: Roboto-regular;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-text);
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: Roboto-regular;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--font-main);
+    color: red;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80px;
+    background-color: var(--color-primary);
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+}
+
+nav ul a{
+    text-decoration: none;
+}
