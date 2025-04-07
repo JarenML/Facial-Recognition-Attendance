@@ -55,7 +55,7 @@ def registrar(persona):
             actual = datetime.now()
 
             query_check = """
-                SELECT COUNT(*) as total FROM base_asistencia WHERE nombre=%s
+                SELECT COUNT(*) as total FROM base_detectado WHERE nombre=%s
             """
             cursor.execute(query_check, (persona,))
             resultado = cursor.fetchone()
@@ -64,7 +64,7 @@ def registrar(persona):
             if resultado['total'] == 0:
 
                 query_insert = """
-                    INSERT INTO base_asistencia (nombre, fecha, hora)
+                    INSERT INTO base_detectado (nombre, fecha, hora)
                     VALUES (%s, %s, %s)
                 """
                 cursor.execute(query_insert, (persona, actual.date(), actual.time()))

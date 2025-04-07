@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Asistencia
+from .models import Detectado
 
 # Create your views here.
 def listar_detectados(request):
-    detectados = Asistencia.objects.all()
+    detectados = Detectado.objects.all()
     context = {
         'detectados': detectados
     }
@@ -12,7 +12,7 @@ def listar_detectados(request):
 
 
 def eliminar_detectado(request, id):
-    detectado = Asistencia.objects.get(id=id)
+    detectado = Detectado.objects.get(id=id)
     if request.method == "POST":
         detectado.delete()
         return redirect('detectados')
