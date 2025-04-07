@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Detectado
+from .forms import RegistradoForm
 
 # Create your views here.
 def listar_detectados(request):
@@ -22,6 +23,23 @@ def eliminar_detectado(request, id):
     }
 
     return render(request, 'base/detectado_delete.html', context)
+
+def mostrar_registrados(request):
+    return render(request, 'base/registrados.html', {})
+
+def agregar_registro(request):
+    form = RegistradoForm()
+    if request.method == 'POST':
+        form = RegistradoForm(request.POST, request.FILES)
+        print("FORM:", form)
+        print(form.instance.imagen.url)
+        if form.is_valid():
+            form.save()
+            return redirect('registrados')
+    return render(request, 'base/nuevo_registro.html', {'form': form})
+    
+    
+        
 
 
 

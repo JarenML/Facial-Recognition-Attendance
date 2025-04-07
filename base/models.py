@@ -18,7 +18,7 @@ class Registrado(models.Model):
     informacion = models.TextField(null=True, blank=True)
     imagen = models.ImageField(upload_to='registrados/', null=True, blank=True)
     creado_en = models.DateTimeField(auto_now_add=True)
-    actualizado_en = models.DateField(auto_created=True)
+    actualizado_en = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.nombre
