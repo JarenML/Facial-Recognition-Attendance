@@ -13,3 +13,5 @@ __pycache__/
 
 # Ignorando el entorno virtual
 env/
+
+/media/
