@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Detectado
 from .forms import RegistradoForm
+from .models import Registrado
 
 # Create your views here.
 def listar_detectados(request):
@@ -25,7 +26,8 @@ def eliminar_detectado(request, id):
     return render(request, 'base/detectado_delete.html', context)
 
 def mostrar_registrados(request):
-    return render(request, 'base/registrados.html', {})
+    registrados = Registrado.objects.all()
+    return render(request, 'base/registrados.html', {'registrados': registrados})
 
 def agregar_registro(request):
     form = RegistradoForm()

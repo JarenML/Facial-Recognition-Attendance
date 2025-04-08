@@ -2,5 +2,13 @@
 {% block title %}Registrados{% endblock %}
 {% block content %}
     <h1>Mis registrados</h1>
+    <div>
+    {% for registrado in registrados %}
+        <div style="border: 1px solid black;">
+            <img alt="imagen" src="{{ registrado.imagen.url }}">
+        </div>
+    {% endfor %}
+    <div>
+
     <a href="{% url 'agregar_registro' %}">Agregar nuevo</a>
 {% endblock %}
