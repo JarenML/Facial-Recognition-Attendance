@@ -2,10 +2,11 @@
 {% block title %}Registrados{% endblock %}
 {% block content %}
     <h1>Mis registrados</h1>
-    <div>
+    <div style="display: flex;">
     {% for registrado in registrados %}
         <div style="border: 1px solid black;">
-            <img alt="imagen" src="{{ registrado.imagen.url }}">
+            <img alt="imagen" src="{{ registrado.imagen.url }}" style="width: 250px; height: 250px;">
+            <div><p>{{ registrado.informacion }}</p></div>
         </div>
     {% endfor %}
     <div>
