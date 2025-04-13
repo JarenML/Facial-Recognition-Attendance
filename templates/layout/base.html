@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Platform | {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% block style %}{% endblock %}
 </head>
 <body>
     {% include "layout/partials/menu.html" %}
-    <hr>
     <main>
         {% block content %}
         {% endblock %}

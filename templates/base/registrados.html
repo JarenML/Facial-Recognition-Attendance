@@ -1,5 +1,7 @@
 {% extends "layout/base.html" %}
+{% load static %}
 {% block title %}Registrados{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static "css/registrados.css" %}">{% endblock%}
 {% block content %}
     <h1>Mis registrados</h1>
     <div style="display: flex;">

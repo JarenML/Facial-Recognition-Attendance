@@ -1,0 +1,21 @@
+.btn-agregar-registro{
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    background-color: #007bff;
+    color: white;
+    font-size: 35px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+
+.btn-agregar-registro:hover {
+    background-color: #0056b3;
+}
