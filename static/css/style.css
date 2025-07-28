@@ -1,5 +1,5 @@
 :root{
-    --color-primary: #b8f2e6;
+    --color-primary: #03045e;
     --color-text: #666;
     --font-main: Roboto-bold;
     --font-text: Roboto-regular;
@@ -27,12 +27,20 @@ h1, h2, h3, h4, h5, h6{
     color: red;
 }
 
+h1 {
+    color: #444;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    text-align: center;
+    font-weight: 400;
+}
+
+
 nav{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 80px;
     background-color: var(--color-primary);
 }
 
@@ -44,7 +52,21 @@ nav ul{
     width: 90%;
 }
 
+nav ul li {
+    padding: 35px;
+}
+
 nav ul a{
     text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+nav ul a:hover {
+    color: whitesmoke;
+}
+
+main {
+    padding: 30px;
 }
 
