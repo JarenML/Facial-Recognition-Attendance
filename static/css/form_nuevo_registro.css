@@ -1,0 +1,53 @@
+form {
+    box-shadow: 0 0 5px #444;
+    width: 25%;
+    margin: auto;
+    padding: 20px;
+    border: 3px;
+    background-color: #ffffff0f;
+}
+
+form p{
+    margin-top: 25px;
+}
+
+form input, form textarea{
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+form > :nth-child(4) input{
+    border: none;
+}
+
+form input {
+    padding: 5px 0;
+    padding-bottom: 2px;
+    font-size: 1.1em;
+    border: none;
+    border-bottom: 1px solid #00000071;
+    outline: none;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 60%;
+    padding: 10px 15px;
+    background-color: #9ef0ff;
+
+    border: none;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.639);
+    margin-top: 25px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: #90e0ef;
+
+}
+

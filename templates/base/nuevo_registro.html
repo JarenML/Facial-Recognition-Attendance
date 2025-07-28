@@ -1,4 +1,7 @@
 {% extends "layout/base.html" %}
+
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static "css/form_nuevo_registro.css" %}">{% endblock %}
 {% block title %}Nuevo registro{% endblock %}
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
