@@ -1,5 +1,8 @@
 {% extends "layout/base.html" %}
 
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static "css/detectados.css" %}">{% endblock %}
 {% block title %}Detectados{% endblock %}
 {% block content %}
     {% if detectados %}

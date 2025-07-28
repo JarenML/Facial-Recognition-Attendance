@@ -21,7 +21,7 @@ conexion = pymysql.connect(
 ruta_proyecto = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # une esa ruta con la carpeta 'base/Estudiantes'
-ruta = os.path.join(ruta_proyecto, 'base', 'Estudiantes')
+ruta = os.path.join(ruta_proyecto, 'media', 'registrados')
 
 mis_imagenes = []
 nombres_estudiantes = []
@@ -78,7 +78,7 @@ def registrar(persona):
 
 estudiantes_Codificados = codificar(mis_imagenes)
 
-url = "http://192.168.1.3:8080/video"
+url = "http://192.168.1.5:8080/video"
 
 capturador = cv2.VideoCapture(url)
 
@@ -153,7 +153,7 @@ while True:
                             1.5,
                             (0, 0, 0),
                             5)
-
+                print(nombre)
                 registrar(nombre)
 
         cv2.namedWindow("Imagen Web", cv2.WINDOW_NORMAL)

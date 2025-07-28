@@ -29,16 +29,28 @@ def mostrar_registrados(request):
     registrados = Registrado.objects.all()
     return render(request, 'base/registrados.html', {'registrados': registrados})
 
+import os
+from django.utils.text import slugify
+
 def agregar_registro(request):
     form = RegistradoForm()
     if request.method == 'POST':
         form = RegistradoForm(request.POST, request.FILES)
-        print("FORM:", form)
-        print(form.instance.imagen.url)
         if form.is_valid():
-            form.save()
+            registro = form.save(commit=False)
+
+            if 'imagen' in request.FILES:
+                imagen_original = request.FILES['imagen']
+                extension = os.path.splitext(imagen_original.name)[1]
+                nuevo_nombre = f"{slugify(registro.nombre)}{extension}"
+                imagen_original.name = nuevo_nombre
+
+                registro.imagen = imagen_original
+
+            registro.save()
             return redirect('registrados')
     return render(request, 'base/nuevo_registro.html', {'form': form})
+
     
     
         
